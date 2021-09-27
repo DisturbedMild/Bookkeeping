@@ -20,7 +20,7 @@
     line-height: 24px;
     font-family: Arial, sans-serif;
     font-weight: 600;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .footer-copyright {
