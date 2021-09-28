@@ -1,4 +1,5 @@
 <template>
+ <new-action @form-submit="submitedForm"></new-action>
  <section class="tables">
   <div class="container">
    <div class="tables-tabs">
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import NewAction from '../form/NewAction.vue';
 import IncomeTable from "./IncomeTable.vue";
 import OutcomeTable from "./OutcomeTable.vue";
 import ReportTable from "./ReportTable.vue";
@@ -23,7 +25,9 @@ export default {
   IncomeTable,
   OutcomeTable,
   ReportTable,
+  NewAction
  },
+ emits: ['formSubmit'],
  data() {
   return {
    currentTab: "IncomeTable",
@@ -32,6 +36,9 @@ export default {
  methods: {
   changeTab(tabName) {
    return (this.currentTab = tabName);
+  },
+  submitedForm(value, description, actionType) {
+   this.$store.commit("storeAction", { value, description, actionType, date: new Date().toLocaleString()});
   },
  },
 };
