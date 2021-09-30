@@ -3,9 +3,9 @@
  <section class="tables">
   <div class="container">
    <div class="tables-tabs">
-    <base-button @click="changeTab('IncomeTable')">Incomes</base-button>
-    <base-button @click="changeTab('OutcomeTable')">Outcomes</base-button>
-    <base-button @click="changeTab('ReportTable')">Report</base-button>
+    <base-button @click="changeTab('IncomeTable')" :class="'green'" >Incomes</base-button>
+    <base-button @click="changeTab('OutcomeTable')"  :class="'red'">Outcomes</base-button>
+    <base-button @click="changeTab('ReportTable')"  :class="'yellow'">Report</base-button>
    </div>
    <keep-alive>
     <component :is="currentTab"></component>
@@ -39,6 +39,7 @@ export default {
   },
   submitedForm(value, description, actionType) {
    this.$store.commit("storeAction", { value, description, actionType, date: new Date().toLocaleString()});
+   this.$refs["value"] = '';
   },
  },
 };

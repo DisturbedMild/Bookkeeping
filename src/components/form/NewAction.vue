@@ -12,6 +12,7 @@
        name="sum"
        placeholder="Enter used money in $"
        v-model="value"
+       ref="value"
       />
      </div>
      <div class="form-group">
@@ -23,15 +24,16 @@
        name="description"
        placeholder="Add action description"
        v-model="description"
+       ref="description"
       />
      </div>
      <div class="form-group">
       <label for="action-type">
        Action Type :
       </label>
-      <select name="action-type" v-model="actionType">
-       <option value="Expenses">Expenses</option>
-       <option value="Income" default>Income</option>
+      <select name="action-type" v-model="actionType" ref="actionType">
+       <option value="Expenses" :style="'color: tomato'">Expenses</option>
+       <option value="Income" :style="'color: green'" default>Income</option>
       </select>
      </div>
      <div class="form-group btn">
@@ -51,12 +53,7 @@ export default {
    description: "",
    actionType: "Expenses",
   };
- },
-//  methods: {
-//    formSubmit() {
-//      console.log(this.value, this.description, this.actionType);
-//    }
-//  }
+ }
 };
 </script>
 
@@ -81,6 +78,10 @@ export default {
  font-weight: 600;
  color: #fff;
 }
+
+.form-group input { 
+    color: #fff;
+}
 .form-group input,
 .form-group select {
  box-sizing: border-box;
@@ -91,7 +92,6 @@ export default {
  background-color: transparent;
  margin-bottom: 20px;
  padding: 5px;
- color: #fff;
 }
 .form-group input:focus {
  outline: none;

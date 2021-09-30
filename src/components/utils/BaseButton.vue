@@ -32,4 +32,13 @@ button {
 button:hover {
     filter: brightness(90%);
 }
+.green {
+    background-color: lightgreen;
+}
+.red {
+    background: tomato;
+}
+.yellow {
+    background: yellow;
+}
 </style>
